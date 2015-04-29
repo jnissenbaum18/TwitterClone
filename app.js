@@ -4,8 +4,12 @@ var swig = require('swig')
 var routes = require('./routes/')
 var express = require('express')
 var bodyParser = require('body-parser')
+var socketio = require('socket.io');
 
 var app = express()
+
+// // ...
+// var server = app.listen(3000);
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -21,7 +25,6 @@ app.set('views', __dirname + '/views')
 
 app.use(morgan('dev'))
 
-app.use('/', routes)
 
 app.use(express.static(__dirname + '/public'));
 
@@ -42,3 +45,7 @@ var server = app.listen(3000, function () {
 	console.log('Server Listening', host, port);
 
 });
+
+var io = socketio.listen(server);
+
+app.use('/', routes(io));
