@@ -1,6 +1,7 @@
 var express = require('express')
 var morgan = require('morgan')
 var swig = require('swig')
+var routes = require('./routes/')
 
 var app = express()
 
@@ -12,14 +13,18 @@ app.set('views', __dirname + '/views')
 
 app.use(morgan('dev'))
 
-app.get('/', function (req, res) {
-	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
-	res.render( 'index', {title: 'Hall of Fame', people: people} );
-})
+app.use('/', routes)
 
-app.get('/news', function (req, res){
-	res.send("You're reading news!")
-})
+app.use(express.static(__dirname + '/public'));
+
+// app.get('/', function (req, res) {
+// 	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+// 	res.render( 'index', {title: 'Hall of Fame', people: people} );
+// })
+
+// app.get('/news', function (req, res){
+// 	res.send("You're reading news!")
+// })
 
 var server = app.listen(3000, function () {
 
