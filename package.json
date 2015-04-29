@@ -1,0 +1,23 @@
+{
+  "name": "TwitterClone",
+  "version": "1.0.0",
+  "description": "Fullstack twitter project",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log('hello')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jnissenbaum18/TwitterClone.git"
+  },
+  "author": "James",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnissenbaum18/TwitterClone/issues"
+  },
+  "homepage": "https://github.com/jnissenbaum18/TwitterClone",
+  "dependencies": {
+    "express": "^4.12.3",
+    "morgan": "^1.5.2"
+  }
+}
