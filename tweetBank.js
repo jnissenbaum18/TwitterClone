@@ -11,8 +11,6 @@ var list = function () {
 };
 
 var find = function (properties) {
-  console.log(data);
-  console.log("properties: ", properties)
   return _.where(data, properties);
 };
 
