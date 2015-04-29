@@ -4,6 +4,8 @@ var swig = require('swig')
 
 var app = express()
 
+swig.setDefaults({ cache: false })
+
 app.engine('html', swig.renderFile)
 app.set('view engine', 'html')
 app.set('views', __dirname + '/views')
