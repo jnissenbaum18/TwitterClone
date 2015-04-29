@@ -13,7 +13,8 @@ app.set('views', __dirname + '/views')
 app.use(morgan('dev'))
 
 app.get('/', function (req, res) {
-	res.send('hello, world!')
+	var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
+	res.render( 'index', {title: 'Hall of Fame', people: people} );
 })
 
 app.get('/news', function (req, res){
